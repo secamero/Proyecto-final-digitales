@@ -1,0 +1,85 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+--------------------------------------------------------------
+ENTITY ball_bouncing_final IS
+
+   GENERIC (lines : INTEGER := 8;
+	         X     : INTEGER := 128;
+            Y     : INTEGER := 8);
+				
+   PORT    ( clk       : IN STD_LOGIC;
+				 rst       : IN STD_LOGIC;
+--				 posi1     : IN UNSIGNED(X-1 DOWNTO 0);
+--				 posi2     : IN UNSIGNED(X-1 DOWNTO 0);
+             rd_data   : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0);
+		       rd_dat2   : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0);
+		       rd_dat3   : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0));
+				 
+END ENTITY ball_bouncing_final;
+---------------------------------------------------------------
+ARCHITECTURE behavioral OF ball_bouncing_final IS
+  
+  SIGNAL countert : STD_LOGIC_VECTOR(27 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL i        : INTEGER := 20;
+  SIGNAL ena1     : STD_LOGIC := '1';
+  SIGNAL maxtick0 : STD_LOGIC;
+
+  TYPE STATES IS (state00, state01, state11, state10);
+  TYPE position IS ARRAY (X-1 DOWNTO 0) OF STD_LOGIC;
+  
+  SIGNAL posi: position := (OTHERS => '0');
+  SIGNAL pr_state, nx_state: STATES;
+  
+  TYPE matrix IS ARRAY (0 TO Y-1) OF STD_LOGIC_VECTOR(Y-1 DOWNTO 0);
+	
+	CONSTANT filas: matrix := (
+	"10000000",
+	"01000000",
+	"00100000",
+	"00010000",
+	"00001000",
+	"00000100",
+	"00000010",
+	"00000001");
+	
+	CONSTANT columnas: matrix := (
+	"01111111",
+	"10111111",
+	"11011111",
+	"11101111",
+	"11110111",
+	"11111011",
+	"11111101",
+	"11111110");
+  
+BEGIN
+  
+  counter_t: ENTITY work.univ_bin_counter_control_2
+   PORT MAP( clk => clk, 
+	          rst => rst,
+				 ena => ena1,
+				 syn_clr => '0',
+				 load => '0',
+				 up => '1',
+				 d => "0000000000000000000000000000",
+			    ctrl => "0000100110001001011010000000",
+--				 ctrl => "0010111110101111000010000000",
+--             ctrl => "0000000000000000000000000010",
+				 max_tick => maxtick0,
+				 min_tick => OPEN,
+				 counter => countert);
+  
+  register1 : ENTITY work.datff
+  PORT MAP( dta   => 
+		      clk	=> clk,
+			   res	=> rst,
+				en		=> maxtick0,
+				q		=> );
+				
+  register2 : ENTITY work.datff
+  PORT MAP( dta   => 
+		      clk	=> clk,
+			   res	=> rst,
+				en		=> maxtick0,
+				q		=> );

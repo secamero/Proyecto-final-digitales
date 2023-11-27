@@ -1,0 +1,31 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+-------------------------------------------------
+ENTITY async_rom_carita IS
+GENERIC (X : INTEGER := 4;
+         Y : INTEGER := 8);
+PORT( addr    : IN  STD_LOGIC_VECTOR(X-1 DOWNTO 0);
+      rd_data : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0));
+END ENTITY async_rom_carita;
+-------------------------------------------------
+ARCHITECTURE behavioral OF async_rom_carita IS
+BEGIN
+   ron_data: PROCESS(addr)
+	BEGIN
+	   CASE addr IS
+		   WHEN "0000" => rd_data <= "00000001";
+			WHEN "0001" => rd_data <= "00001111";
+			WHEN "0010" => rd_data <= "00010010";
+			WHEN "0011" => rd_data <= "00000001";
+			WHEN "0100" => rd_data <= "00000001";
+			WHEN "0101" => rd_data <= "00000001";
+			WHEN "0110" => rd_data <= "00000001";
+			WHEN "0111" => rd_data <= "00000001";
+			WHEN "1000" => rd_data <= "00000001";
+			WHEN "1001" => rd_data <= "00000001";
+			WHEN "1010" => rd_data <= "00000001";
+			WHEN "1011" => rd_data <= "00000001";
+			WHEN OTHERS => rd_data <= "00000000";
+		END CASE;
+	END PROCESS;
+END ARCHITECTURE behavioral;	

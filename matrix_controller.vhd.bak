@@ -1,0 +1,12 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+----------------------------------------------------------
+ENTITY matrix_controller IS
+   GENERIC (lines : INTEGER := 8);
+   PORT    ( clk       : IN STD_LOGIC;
+	          filas     : OUT STD_logic_VECTOR(lines-1 DOWNTO 0);
+			    columnas  : OUT STD_logic_VECTOR(lines-1 DOWNTO 0));
+END ENTITY matrix_controller;
+----------------------------------------------------------
+ARCHITECTURE behaviour OF matrix_controller IS

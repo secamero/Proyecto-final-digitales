@@ -1,0 +1,24 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+--------------------------------------------------------------
+ENTITY print_in_matrix_tb IS
+END ENTITY print_in_matrix_tb;
+---------------------------------------------------------------
+ARCHITECTURE testbench OF print_in_matrix_tb IS
+
+SIGNAL  clk_tb  : STD_LOGIC;
+SIGNAL rst_tb : STD_LOGIC;
+SIGNAL position_tb : STD_LOGIC_VECTOR(127 DOWNTO 0);
+SIGNAL filas_tb : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL cols1_tb : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL cols2_tb : STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+BEGIN
+
+  clk_tb <= (NOT clk_tb) AFTER 10ns;
+  rst_tb <= '0' AFTER 20ns;
+  
+  position_tb <= 
+ 
+END ARCHITECTURE testbench; 

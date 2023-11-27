@@ -1,0 +1,22 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE ieee.numeric_std.all;
+-------------------------------------------------
+ENTITY chasing_led IS
+GENERIC (X : INTEGER := 4;
+         Y : INTEGER := 8);
+PORT( clk     : IN  STD_LOGIC;
+		rst     : IN  STD_LOGIC;
+      rd_data : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0);
+		rd_dat2 : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0));
+END ENTITY chasing_led;
+------------------------------------------------
+ARCHITECTURE behavioral OF async_rom_carita IS
+  SIGNAL addr     : UNSIGNED(X-1 DOWNTO 0);
+  SIGNAL counter00 : STD_LOGIC_VECTOR(27 DOWNTO 0);
+  SIGNAL counter11 : STD_LOGIC_VECTOR(X-1 DOWNTO 0);
+  SIGNAL maxtick00 : STD_LOGIC;
+  SIGNAL ena      : STD_LOGIC := '1';
+  SIGNAL ena2     : STD_LOGIC;
+BEGIN
+END ARCHITECTURE behavioral;

@@ -1,0 +1,25 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+-------------------------------------------------
+ENTITY datff IS
+		PORT (	dta   :  IN    STD_LOGIC;
+		         clk	:	IN		STD_LOGIC;
+					res	:	IN		STD_LOGIC;
+					en		:	IN		STD_LOGIC;
+					q		:	OUT	STD_LOGIC);
+END ENTITY;
+	-------------------------------------------------
+	ARCHITECTURE behavioral OF datff IS
+--		SIGNAL q_s	:	STD_LOGIC;
+	BEGIN	
+		dtaff: PROCESS(clk,en,dta,res)
+		BEGIN
+			IF(res = '1') THEN
+				q <= '0';
+			ELSIF	(rising_edge(clk))	THEN
+				IF	(en = '1')	THEN
+					q <= dta;
+				END IF;
+			END IF;
+		END PROCESS;
+	END ARCHITECTURE;

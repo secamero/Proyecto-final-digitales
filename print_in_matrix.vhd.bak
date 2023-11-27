@@ -1,0 +1,116 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+--------------------------------------------------------------
+ENTITY print_in_matrix IS
+
+   GENERIC (lines : INTEGER := 8;
+	         X     : INTEGER := 128;
+            Y     : INTEGER := 8);
+				
+   PORT    ( clk       : IN STD_LOGIC;
+				 rst       : IN STD_LOGIC;
+				 position  : OUT STD_LOGIC_VECTOR(X-1 DOWNTO 0);
+             rd_data   : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0);
+		       rd_dat2   : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0);
+		       rd_dat3   : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0));
+--           posiout : OUT STD_LOGIC_VECTOR(X-1 DOWNTO 0));
+				 
+END ENTITY print_in_matrix;
+---------------------------------------------------------------
+ARCHITECTURE behavioral OF print_in_matrix IS
+
+SIGNAL p0 : STD_LOGIC := '0';
+SIGNAL p1 : STD_LOGIC := '0';
+SIGNAL p2 : STD_LOGIC := '0';
+SIGNAL p3 : STD_LOGIC := '0';
+SIGNAL p4 : STD_LOGIC := '0';
+SIGNAL p5 : STD_LOGIC := '0';
+SIGNAL p6 : STD_LOGIC := '0';
+SIGNAL p7 : STD_LOGIC := '0';
+
+SIGNAL 
+
+
+BEGIN
+
+  counter_time: ENTITY work.univ_bin_counter_control_2
+   PORT MAP( clk => clk, 
+	          rst => rst,
+				 ena => '1',
+				 syn_clr => '0',
+				 load => '0',
+				 up => '1',
+				 d => "0000000000000000000000000000",
+			    ctrl => "0000100110001001011010000000",
+				 max_tick => maxtick0,
+				 min_tick => OPEN,
+				 counter => counter_T);
+				 
+  counter_i: ENTITY work.univ_bin_counter_control_2
+   PORT MAP( clk => maxtick0, 
+	          rst => rst,
+				 ena => '1',
+				 syn_clr => '0',
+				 load => '0',
+				 up => '1',
+				 d => "0000000000000000000000000000",
+			    ctrl => "0000100110001001011010000000",
+				 max_tick => maxtick0,
+				 min_tick => OPEN,
+				 counter => counter_i);
+  
+  -- 260.41 us
+  
+  comparador1 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p0);
+				
+  comparador2 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p1);
+				
+  comparador3 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p2);
+				
+  comparador4 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p3);
+				
+  comparador5 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p4);
+				
+  comparador6 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p5);
+				
+  comparador7 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p6);
+				
+  comparador8 : ENTITY work.comparador
+  PORT MAP( x  => 
+			   y	=>
+				eq => p7);
+				
+  counter_fila: ENTITY work.univ_bin_counter_control_2
+   PORT MAP( clk => clk, 
+	          rst => rst,
+				 ena => '1',
+				 syn_clr => '0',
+				 load => '0',
+				 up => '1',
+				 d => "0000000000000000000000000000",
+			    ctrl => "0000100110001001011010000000",
+				 max_tick => maxtick0,
+				 min_tick => OPEN,
+				 counter => counter_F);

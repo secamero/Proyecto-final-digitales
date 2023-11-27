@@ -1,0 +1,29 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+----------------------------------------------------------
+ENTITY matrix_controller_tb IS
+END ENTITY matrix_controller_tb;
+----------------------------------------------------------
+ARCHITECTURE testbench OF matrix_controller_tb IS
+  SIGNAL clk_tb : STD_LOGIC := '0';
+  SIGNAL sel_tb : STD_LOGIC := '0';
+  SIGNAL rst_tb : STD_LOGIC := '1';
+  SIGNAL filas1_tb : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL filas2_tb : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL columnas1_tb : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL columnas2_tb : STD_LOGIC_VECTOR(7 DOWNTO 0);
+BEGIN
+  clk_tb <= (NOT clk_tb) AFTER 20ns;
+  rst_tb <= '0' AFTER 20ns;
+  
+  tstbench: ENTITY work.matrix_controller
+  PORT MAP( clk => clk_tb,
+            sel => sel_tb,
+				rst => rst_tb,
+				filas1 => filas1_tb,
+				columnas1 => columnas1_tb,
+				filas2 => filas2_tb,
+				columnas2 => columnas2_tb);
+				
+END ARCHITECTURE testbench;

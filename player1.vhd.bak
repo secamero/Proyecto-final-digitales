@@ -1,0 +1,38 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+--------------------------------------------------------------
+ENTITY player1 IS
+
+   GENERIC (lines : INTEGER := 8;
+	         X     : INTEGER := 128;
+            Y     : INTEGER := 8);
+				
+   PORT    ( clk       : IN STD_LOGIC;
+				 rst       : IN STD_LOGIC;
+             button1   : IN STD_LOGIC;
+				 button2   : IN STD_LOGIC;
+				 
+END ENTITY player1;
+---------------------------------------------------------------
+ARCHITECTURE behavioral OF player1 IS
+
+ SIGNAL buttonup1 : STD_LOGIC;
+ SIGNAL buttonup2 : STD_LOGIC;
+ 
+BEGIN
+
+ up1 : ENTITY work.edge_detect
+ PORT MAP( clk => clk,
+	        async_sig => not button1,
+			  rise => buttonup1,
+			  fall => OPEN);
+ 
+ up2 : ENTITY work.edge_detect
+ PORT MAP( clk => clk,
+	        async_sig => not button2,
+			  rise => buttonup2,
+			  fall => OPEN);
+ 
+END ARCHITECTURE behavioral;
+  

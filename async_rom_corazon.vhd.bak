@@ -1,0 +1,28 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+-------------------------------------------------
+ENTITY async_rom_corazon IS
+GENERIC (X : INTEGER := 4;
+         Y : INTEGER := 8);
+PORT( addr    : IN  STD_LOGIC_VECTOR(X-1 DOWNTO 0);
+      rd_data : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0);
+		rd_dat2 : OUT STD_LOGIC_VECTOR(Y-1 DOWNTO 0));
+END ENTITY async_rom_corazon;
+-------------------------------------------------
+ARCHITECTURE behavioral OF async_rom_corazon IS
+BEGIN
+   rom_data: PROCESS(addr)
+	BEGIN
+	   CASE addr IS
+		   WHEN "0000" => rd_data <= "00000000"; rd_dat2 <= "01111111";
+			WHEN "0001" => rd_data <= "01100110"; rd_dat2 <= "10111111";
+			WHEN "0010" => rd_data <= "11111111"; rd_dat2 <= "11011111";
+			WHEN "0011" => rd_data <= "11111111"; rd_dat2 <= "11101111";
+			WHEN "0100" => rd_data <= "01111110"; rd_dat2 <= "11110111";
+			WHEN "0101" => rd_data <= "00111100"; rd_dat2 <= "11111011";
+			WHEN "0110" => rd_data <= "00011000"; rd_dat2 <= "11111101";
+			WHEN "0111" => rd_data <= "00000000"; rd_dat2 <= "11111110";
+			WHEN OTHERS => rd_data <= "00000000"; rd_dat2 <= "00000000";
+		END CASE;
+	END PROCESS;
+END ARCHITECTURE;	
