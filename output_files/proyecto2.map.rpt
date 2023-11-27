@@ -1,0 +1,1264 @@
+Analysis & Synthesis report for proyecto2
+Mon Nov 27 11:16:38 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |matrix_controller|ball_bouncing_final:bounce|pr_state
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |matrix_controller
+ 13. Parameter Settings for User Entity Instance: ball_bouncing_final:bounce
+ 14. Parameter Settings for User Entity Instance: ball_bouncing_final:bounce|univ_bin_counter_control_2:counter_t
+ 15. Parameter Settings for User Entity Instance: print_in_matrix:print
+ 16. Parameter Settings for User Entity Instance: print_in_matrix:print|univ_bin_counter_control_2:counter_time
+ 17. Parameter Settings for User Entity Instance: print_in_matrix:print|univ_bin_counter_control_2:counter_i1
+ 18. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador1
+ 19. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador2
+ 20. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador3
+ 21. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador4
+ 22. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador5
+ 23. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador6
+ 24. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador7
+ 25. Parameter Settings for User Entity Instance: print_in_matrix:print|comparador_less:comparador_retro
+ 26. Parameter Settings for User Entity Instance: print_in_matrix:print|univ_bin_counter_control_2:counter_fila
+ 27. Port Connectivity Checks: "print_in_matrix:print|univ_bin_counter_control_2:counter_fila"
+ 28. Port Connectivity Checks: "print_in_matrix:print|comparador_less:comparador_retro"
+ 29. Port Connectivity Checks: "print_in_matrix:print|comparador:comparador7"
+ 30. Port Connectivity Checks: "print_in_matrix:print|comparador:comparador6"
+ 31. Port Connectivity Checks: "print_in_matrix:print|comparador:comparador5"
+ 32. Port Connectivity Checks: "print_in_matrix:print|comparador:comparador4"
+ 33. Port Connectivity Checks: "print_in_matrix:print|comparador:comparador3"
+ 34. Port Connectivity Checks: "print_in_matrix:print|comparador:comparador2"
+ 35. Port Connectivity Checks: "print_in_matrix:print|comparador:comparador1"
+ 36. Port Connectivity Checks: "print_in_matrix:print|univ_bin_counter_control_2:counter_i1"
+ 37. Port Connectivity Checks: "print_in_matrix:print|univ_bin_counter_control_2:counter_time"
+ 38. Port Connectivity Checks: "ball_bouncing_final:bounce|datff:register2"
+ 39. Port Connectivity Checks: "ball_bouncing_final:bounce|univ_bin_counter_control_2:counter_t"
+ 40. Elapsed Time Per Partition
+ 41. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Nov 27 11:16:38 2023      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; proyecto2                                  ;
+; Top-level Entity Name              ; matrix_controller                          ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 968                                        ;
+;     Total combinational functions  ; 958                                        ;
+;     Dedicated logic registers      ; 101                                        ;
+; Total registers                    ; 101                                        ;
+; Total pins                         ; 35                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; matrix_controller  ; proyecto2          ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                              ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                                       ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; datff.vhd                        ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/datff.vhd                      ;         ;
+; univ_bin_counter_control_2.vhd   ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/univ_bin_counter_control_2.vhd ;         ;
+; matrix_controller.vhd            ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/matrix_controller.vhd          ;         ;
+; ball_bouncing_final.vhd          ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/ball_bouncing_final.vhd        ;         ;
+; mux4_1_when_else_integer.vhd     ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/mux4_1_when_else_integer.vhd   ;         ;
+; comparador.vhd                   ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/comparador.vhd                 ;         ;
+; print_in_matrix.vhd              ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/print_in_matrix.vhd            ;         ;
+; decoder3_8.vhd                   ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/decoder3_8.vhd                 ;         ;
+; decoder4_16.vhd                  ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/decoder4_16.vhd                ;         ;
+; comparador_less.vhd              ; yes             ; User VHDL File  ; C:/Users/usuario/Documents/internet_tecnicos/Samuel/javeriana/2023/cuarto_semestre/Digitales/Proyecto_final/Quartus/comparador_less.vhd            ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                   ;
++---------------------------------------------+-------------------------------------------------+
+; Resource                                    ; Usage                                           ;
++---------------------------------------------+-------------------------------------------------+
+; Estimated Total logic elements              ; 968                                             ;
+;                                             ;                                                 ;
+; Total combinational functions               ; 958                                             ;
+; Logic element usage by number of LUT inputs ;                                                 ;
+;     -- 4 input functions                    ; 516                                             ;
+;     -- 3 input functions                    ; 204                                             ;
+;     -- <=2 input functions                  ; 238                                             ;
+;                                             ;                                                 ;
+; Logic elements by mode                      ;                                                 ;
+;     -- normal mode                          ; 738                                             ;
+;     -- arithmetic mode                      ; 220                                             ;
+;                                             ;                                                 ;
+; Total registers                             ; 101                                             ;
+;     -- Dedicated logic registers            ; 101                                             ;
+;     -- I/O registers                        ; 0                                               ;
+;                                             ;                                                 ;
+; I/O pins                                    ; 35                                              ;
+; Embedded Multiplier 9-bit elements          ; 0                                               ;
+; Maximum fan-out node                        ; ball_bouncing_final:bounce|datff:register1|q[6] ;
+; Maximum fan-out                             ; 142                                             ;
+; Total fan-out                               ; 3552                                            ;
+; Average fan-out                             ; 3.15                                            ;
++---------------------------------------------+-------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; |matrix_controller                              ; 958 (0)           ; 101 (0)      ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |matrix_controller                                                                 ; work         ;
+;    |ball_bouncing_final:bounce|                 ; 746 (643)         ; 75 (8)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|ball_bouncing_final:bounce                                      ; work         ;
+;       |datff:register1|                         ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|ball_bouncing_final:bounce|datff:register1                      ; work         ;
+;       |datff:register2|                         ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|ball_bouncing_final:bounce|datff:register2                      ; work         ;
+;       |mux4_1_when_else_integer:desition|       ; 64 (64)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|ball_bouncing_final:bounce|mux4_1_when_else_integer:desition    ; work         ;
+;       |univ_bin_counter_control_2:counter_t|    ; 39 (39)           ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|ball_bouncing_final:bounce|univ_bin_counter_control_2:counter_t ; work         ;
+;    |print_in_matrix:print|                      ; 212 (151)         ; 26 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|print_in_matrix:print                                           ; work         ;
+;       |comparador_less:comparador_retro|        ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|print_in_matrix:print|comparador_less:comparador_retro          ; work         ;
+;       |decoder3_8:filas_decoder|                ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|print_in_matrix:print|decoder3_8:filas_decoder                  ; work         ;
+;       |decoder4_16:columnas_decoder|            ; 20 (20)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|print_in_matrix:print|decoder4_16:columnas_decoder              ; work         ;
+;       |univ_bin_counter_control_2:counter_fila| ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|print_in_matrix:print|univ_bin_counter_control_2:counter_fila   ; work         ;
+;       |univ_bin_counter_control_2:counter_i1|   ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|print_in_matrix:print|univ_bin_counter_control_2:counter_i1     ; work         ;
+;       |univ_bin_counter_control_2:counter_time| ; 21 (21)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |matrix_controller|print_in_matrix:print|univ_bin_counter_control_2:counter_time   ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |matrix_controller|ball_bouncing_final:bounce|pr_state                                                                                                              ;
++---------------------+------------------+--------------------+------------------+---------------------+------------------+-------------------+------------------+--------------------+
+; Name                ; pr_state.borrar4 ; pr_state.arriba_iz ; pr_state.borrar3 ; pr_state.arriba_der ; pr_state.borrar2 ; pr_state.abajo_iz ; pr_state.borrar1 ; pr_state.abajo_der ;
++---------------------+------------------+--------------------+------------------+---------------------+------------------+-------------------+------------------+--------------------+
+; pr_state.abajo_der  ; 0                ; 0                  ; 0                ; 0                   ; 0                ; 0                 ; 0                ; 0                  ;
+; pr_state.borrar1    ; 0                ; 0                  ; 0                ; 0                   ; 0                ; 0                 ; 1                ; 1                  ;
+; pr_state.abajo_iz   ; 0                ; 0                  ; 0                ; 0                   ; 0                ; 1                 ; 0                ; 1                  ;
+; pr_state.borrar2    ; 0                ; 0                  ; 0                ; 0                   ; 1                ; 0                 ; 0                ; 1                  ;
+; pr_state.arriba_der ; 0                ; 0                  ; 0                ; 1                   ; 0                ; 0                 ; 0                ; 1                  ;
+; pr_state.borrar3    ; 0                ; 0                  ; 1                ; 0                   ; 0                ; 0                 ; 0                ; 1                  ;
+; pr_state.arriba_iz  ; 0                ; 1                  ; 0                ; 0                   ; 0                ; 0                 ; 0                ; 1                  ;
+; pr_state.borrar4    ; 1                ; 0                  ; 0                ; 0                   ; 0                ; 0                 ; 0                ; 1                  ;
++---------------------+------------------+--------------------+------------------+---------------------+------------------+-------------------+------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                    ;
++------------------------------------------------------+----------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                    ; Free of Timing Hazards ;
++------------------------------------------------------+----------------------------------------+------------------------+
+; ball_bouncing_final:bounce|posi[37]                  ; ball_bouncing_final:bounce|Selector171 ; yes                    ;
+; ball_bouncing_final:bounce|posi[41]                  ; ball_bouncing_final:bounce|Selector175 ; yes                    ;
+; ball_bouncing_final:bounce|posi[33]                  ; ball_bouncing_final:bounce|Selector167 ; yes                    ;
+; ball_bouncing_final:bounce|posi[45]                  ; ball_bouncing_final:bounce|Selector179 ; yes                    ;
+; ball_bouncing_final:bounce|posi[25]                  ; ball_bouncing_final:bounce|Selector159 ; yes                    ;
+; ball_bouncing_final:bounce|posi[21]                  ; ball_bouncing_final:bounce|Selector155 ; yes                    ;
+; ball_bouncing_final:bounce|posi[17]                  ; ball_bouncing_final:bounce|Selector151 ; yes                    ;
+; ball_bouncing_final:bounce|posi[29]                  ; ball_bouncing_final:bounce|Selector163 ; yes                    ;
+; ball_bouncing_final:bounce|posi[5]                   ; ball_bouncing_final:bounce|Selector8   ; yes                    ;
+; ball_bouncing_final:bounce|posi[9]                   ; ball_bouncing_final:bounce|Selector4   ; yes                    ;
+; ball_bouncing_final:bounce|posi[1]                   ; ball_bouncing_final:bounce|Selector140 ; yes                    ;
+; ball_bouncing_final:bounce|posi[13]                  ; ball_bouncing_final:bounce|Selector0   ; yes                    ;
+; ball_bouncing_final:bounce|posi[57]                  ; ball_bouncing_final:bounce|Selector191 ; yes                    ;
+; ball_bouncing_final:bounce|posi[53]                  ; ball_bouncing_final:bounce|Selector187 ; yes                    ;
+; ball_bouncing_final:bounce|posi[49]                  ; ball_bouncing_final:bounce|Selector183 ; yes                    ;
+; ball_bouncing_final:bounce|posi[61]                  ; ball_bouncing_final:bounce|Selector195 ; yes                    ;
+; ball_bouncing_final:bounce|posi[38]                  ; ball_bouncing_final:bounce|Selector172 ; yes                    ;
+; ball_bouncing_final:bounce|posi[22]                  ; ball_bouncing_final:bounce|Selector156 ; yes                    ;
+; ball_bouncing_final:bounce|posi[6]                   ; ball_bouncing_final:bounce|Selector7   ; yes                    ;
+; ball_bouncing_final:bounce|posi[54]                  ; ball_bouncing_final:bounce|Selector188 ; yes                    ;
+; ball_bouncing_final:bounce|posi[26]                  ; ball_bouncing_final:bounce|Selector160 ; yes                    ;
+; ball_bouncing_final:bounce|posi[42]                  ; ball_bouncing_final:bounce|Selector176 ; yes                    ;
+; ball_bouncing_final:bounce|posi[10]                  ; ball_bouncing_final:bounce|Selector3   ; yes                    ;
+; ball_bouncing_final:bounce|posi[58]                  ; ball_bouncing_final:bounce|Selector192 ; yes                    ;
+; ball_bouncing_final:bounce|posi[18]                  ; ball_bouncing_final:bounce|Selector152 ; yes                    ;
+; ball_bouncing_final:bounce|posi[34]                  ; ball_bouncing_final:bounce|Selector168 ; yes                    ;
+; ball_bouncing_final:bounce|posi[2]                   ; ball_bouncing_final:bounce|Selector11  ; yes                    ;
+; ball_bouncing_final:bounce|posi[50]                  ; ball_bouncing_final:bounce|Selector184 ; yes                    ;
+; ball_bouncing_final:bounce|posi[46]                  ; ball_bouncing_final:bounce|Selector180 ; yes                    ;
+; ball_bouncing_final:bounce|posi[30]                  ; ball_bouncing_final:bounce|Selector164 ; yes                    ;
+; ball_bouncing_final:bounce|posi[14]                  ; ball_bouncing_final:bounce|Selector148 ; yes                    ;
+; ball_bouncing_final:bounce|posi[62]                  ; ball_bouncing_final:bounce|Selector196 ; yes                    ;
+; ball_bouncing_final:bounce|posi[40]                  ; ball_bouncing_final:bounce|Selector174 ; yes                    ;
+; ball_bouncing_final:bounce|posi[24]                  ; ball_bouncing_final:bounce|Selector158 ; yes                    ;
+; ball_bouncing_final:bounce|posi[8]                   ; ball_bouncing_final:bounce|Selector5   ; yes                    ;
+; ball_bouncing_final:bounce|posi[56]                  ; ball_bouncing_final:bounce|Selector190 ; yes                    ;
+; ball_bouncing_final:bounce|posi[20]                  ; ball_bouncing_final:bounce|Selector154 ; yes                    ;
+; ball_bouncing_final:bounce|posi[36]                  ; ball_bouncing_final:bounce|Selector170 ; yes                    ;
+; ball_bouncing_final:bounce|posi[4]                   ; ball_bouncing_final:bounce|Selector9   ; yes                    ;
+; ball_bouncing_final:bounce|posi[52]                  ; ball_bouncing_final:bounce|Selector186 ; yes                    ;
+; ball_bouncing_final:bounce|posi[32]                  ; ball_bouncing_final:bounce|Selector166 ; yes                    ;
+; ball_bouncing_final:bounce|posi[16]                  ; ball_bouncing_final:bounce|Selector150 ; yes                    ;
+; ball_bouncing_final:bounce|posi[0]                   ; ball_bouncing_final:bounce|Selector142 ; yes                    ;
+; ball_bouncing_final:bounce|posi[48]                  ; ball_bouncing_final:bounce|Selector182 ; yes                    ;
+; ball_bouncing_final:bounce|posi[28]                  ; ball_bouncing_final:bounce|Selector162 ; yes                    ;
+; ball_bouncing_final:bounce|posi[44]                  ; ball_bouncing_final:bounce|Selector178 ; yes                    ;
+; ball_bouncing_final:bounce|posi[12]                  ; ball_bouncing_final:bounce|Selector1   ; yes                    ;
+; ball_bouncing_final:bounce|posi[60]                  ; ball_bouncing_final:bounce|Selector194 ; yes                    ;
+; ball_bouncing_final:bounce|posi[23]                  ; ball_bouncing_final:bounce|Selector157 ; yes                    ;
+; ball_bouncing_final:bounce|posi[27]                  ; ball_bouncing_final:bounce|Selector161 ; yes                    ;
+; ball_bouncing_final:bounce|posi[19]                  ; ball_bouncing_final:bounce|Selector153 ; yes                    ;
+; ball_bouncing_final:bounce|posi[31]                  ; ball_bouncing_final:bounce|Selector165 ; yes                    ;
+; ball_bouncing_final:bounce|posi[43]                  ; ball_bouncing_final:bounce|Selector177 ; yes                    ;
+; ball_bouncing_final:bounce|posi[39]                  ; ball_bouncing_final:bounce|Selector173 ; yes                    ;
+; ball_bouncing_final:bounce|posi[35]                  ; ball_bouncing_final:bounce|Selector169 ; yes                    ;
+; ball_bouncing_final:bounce|posi[47]                  ; ball_bouncing_final:bounce|Selector181 ; yes                    ;
+; ball_bouncing_final:bounce|posi[11]                  ; ball_bouncing_final:bounce|Selector2   ; yes                    ;
+; ball_bouncing_final:bounce|posi[7]                   ; ball_bouncing_final:bounce|Selector6   ; yes                    ;
+; ball_bouncing_final:bounce|posi[3]                   ; ball_bouncing_final:bounce|Selector10  ; yes                    ;
+; ball_bouncing_final:bounce|posi[15]                  ; ball_bouncing_final:bounce|Selector149 ; yes                    ;
+; ball_bouncing_final:bounce|posi[55]                  ; ball_bouncing_final:bounce|Selector189 ; yes                    ;
+; ball_bouncing_final:bounce|posi[59]                  ; ball_bouncing_final:bounce|Selector193 ; yes                    ;
+; ball_bouncing_final:bounce|posi[51]                  ; ball_bouncing_final:bounce|Selector185 ; yes                    ;
+; ball_bouncing_final:bounce|posi[63]                  ; ball_bouncing_final:bounce|Selector197 ; yes                    ;
+; ball_bouncing_final:bounce|posi[101]                 ; ball_bouncing_final:bounce|Selector235 ; yes                    ;
+; ball_bouncing_final:bounce|posi[105]                 ; ball_bouncing_final:bounce|Selector239 ; yes                    ;
+; ball_bouncing_final:bounce|posi[97]                  ; ball_bouncing_final:bounce|Selector231 ; yes                    ;
+; ball_bouncing_final:bounce|posi[109]                 ; ball_bouncing_final:bounce|Selector243 ; yes                    ;
+; ball_bouncing_final:bounce|posi[89]                  ; ball_bouncing_final:bounce|Selector223 ; yes                    ;
+; ball_bouncing_final:bounce|posi[85]                  ; ball_bouncing_final:bounce|Selector219 ; yes                    ;
+; ball_bouncing_final:bounce|posi[81]                  ; ball_bouncing_final:bounce|Selector215 ; yes                    ;
+; ball_bouncing_final:bounce|posi[93]                  ; ball_bouncing_final:bounce|Selector227 ; yes                    ;
+; ball_bouncing_final:bounce|posi[69]                  ; ball_bouncing_final:bounce|Selector203 ; yes                    ;
+; ball_bouncing_final:bounce|posi[73]                  ; ball_bouncing_final:bounce|Selector207 ; yes                    ;
+; ball_bouncing_final:bounce|posi[65]                  ; ball_bouncing_final:bounce|Selector199 ; yes                    ;
+; ball_bouncing_final:bounce|posi[77]                  ; ball_bouncing_final:bounce|Selector211 ; yes                    ;
+; ball_bouncing_final:bounce|posi[121]                 ; ball_bouncing_final:bounce|Selector255 ; yes                    ;
+; ball_bouncing_final:bounce|posi[117]                 ; ball_bouncing_final:bounce|Selector251 ; yes                    ;
+; ball_bouncing_final:bounce|posi[113]                 ; ball_bouncing_final:bounce|Selector247 ; yes                    ;
+; ball_bouncing_final:bounce|posi[125]                 ; ball_bouncing_final:bounce|Selector259 ; yes                    ;
+; ball_bouncing_final:bounce|posi[102]                 ; ball_bouncing_final:bounce|Selector236 ; yes                    ;
+; ball_bouncing_final:bounce|posi[86]                  ; ball_bouncing_final:bounce|Selector220 ; yes                    ;
+; ball_bouncing_final:bounce|posi[70]                  ; ball_bouncing_final:bounce|Selector204 ; yes                    ;
+; ball_bouncing_final:bounce|posi[118]                 ; ball_bouncing_final:bounce|Selector252 ; yes                    ;
+; ball_bouncing_final:bounce|posi[90]                  ; ball_bouncing_final:bounce|Selector224 ; yes                    ;
+; ball_bouncing_final:bounce|posi[106]                 ; ball_bouncing_final:bounce|Selector240 ; yes                    ;
+; ball_bouncing_final:bounce|posi[74]                  ; ball_bouncing_final:bounce|Selector208 ; yes                    ;
+; ball_bouncing_final:bounce|posi[122]                 ; ball_bouncing_final:bounce|Selector256 ; yes                    ;
+; ball_bouncing_final:bounce|posi[82]                  ; ball_bouncing_final:bounce|Selector216 ; yes                    ;
+; ball_bouncing_final:bounce|posi[98]                  ; ball_bouncing_final:bounce|Selector232 ; yes                    ;
+; ball_bouncing_final:bounce|posi[66]                  ; ball_bouncing_final:bounce|Selector200 ; yes                    ;
+; ball_bouncing_final:bounce|posi[114]                 ; ball_bouncing_final:bounce|Selector248 ; yes                    ;
+; ball_bouncing_final:bounce|posi[110]                 ; ball_bouncing_final:bounce|Selector244 ; yes                    ;
+; ball_bouncing_final:bounce|posi[94]                  ; ball_bouncing_final:bounce|Selector228 ; yes                    ;
+; ball_bouncing_final:bounce|posi[78]                  ; ball_bouncing_final:bounce|Selector212 ; yes                    ;
+; ball_bouncing_final:bounce|posi[126]                 ; ball_bouncing_final:bounce|Selector260 ; yes                    ;
+; ball_bouncing_final:bounce|posi[104]                 ; ball_bouncing_final:bounce|Selector238 ; yes                    ;
+; ball_bouncing_final:bounce|posi[88]                  ; ball_bouncing_final:bounce|Selector222 ; yes                    ;
+; ball_bouncing_final:bounce|posi[72]                  ; ball_bouncing_final:bounce|Selector206 ; yes                    ;
+; ball_bouncing_final:bounce|posi[120]                 ; ball_bouncing_final:bounce|Selector254 ; yes                    ;
+; Number of user-specified and inferred latches = 132  ;                                        ;                        ;
++------------------------------------------------------+----------------------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 101   ;
+; Number of registers using Synchronous Clear  ; 16    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 101   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 39    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |matrix_controller|ball_bouncing_final:bounce|datff:register1|q[6]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |matrix_controller|ball_bouncing_final:bounce|datff:register1|q[31] ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |matrix_controller|ball_bouncing_final:bounce|Selector262           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |matrix_controller ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; lines          ; 8     ; Signed Integer                                           ;
+; X              ; 4     ; Signed Integer                                           ;
+; Y              ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ball_bouncing_final:bounce ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; lines          ; 8     ; Signed Integer                                 ;
+; x              ; 128   ; Signed Integer                                 ;
+; y              ; 8     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ball_bouncing_final:bounce|univ_bin_counter_control_2:counter_t ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; x              ; 28    ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; lines          ; 8     ; Signed Integer                            ;
+; x              ; 128   ; Signed Integer                            ;
+; y              ; 8     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|univ_bin_counter_control_2:counter_time ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; x              ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|univ_bin_counter_control_2:counter_i1 ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; x              ; 7     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador1 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador2 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador3 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador4 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador5 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador6 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador:comparador7 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|comparador_less:comparador_retro ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; max_widht      ; 7     ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: print_in_matrix:print|univ_bin_counter_control_2:counter_fila ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; x              ; 3     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|univ_bin_counter_control_2:counter_fila"                          ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; ena      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; syn_clr  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; load     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; up       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; d        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ctrl     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; max_tick ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; min_tick ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador_less:comparador_retro" ;
++---------+-------+----------+-------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                               ;
++---------+-------+----------+-------------------------------------------------------+
+; y[3..0] ; Input ; Info     ; Stuck at VCC                                          ;
+; y[6..4] ; Input ; Info     ; Stuck at GND                                          ;
++---------+-------+----------+-------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador:comparador7" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[6..4] ; Input ; Info     ; Stuck at VCC                                ;
+; y[3..0] ; Input ; Info     ; Stuck at GND                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador:comparador6" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[6..5] ; Input ; Info     ; Stuck at VCC                                ;
+; y[4..0] ; Input ; Info     ; Stuck at GND                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador:comparador5" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[3..0] ; Input ; Info     ; Stuck at GND                                ;
+; y[6]    ; Input ; Info     ; Stuck at VCC                                ;
+; y[5]    ; Input ; Info     ; Stuck at GND                                ;
+; y[4]    ; Input ; Info     ; Stuck at VCC                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador:comparador4" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[5..0] ; Input ; Info     ; Stuck at GND                                ;
+; y[6]    ; Input ; Info     ; Stuck at VCC                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador:comparador3" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[5..4] ; Input ; Info     ; Stuck at VCC                                ;
+; y[3..0] ; Input ; Info     ; Stuck at GND                                ;
+; y[6]    ; Input ; Info     ; Stuck at GND                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador:comparador2" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[4..0] ; Input ; Info     ; Stuck at GND                                ;
+; y[6]    ; Input ; Info     ; Stuck at GND                                ;
+; y[5]    ; Input ; Info     ; Stuck at VCC                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|comparador:comparador1" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[6..5] ; Input ; Info     ; Stuck at GND                                ;
+; y[3..0] ; Input ; Info     ; Stuck at GND                                ;
+; y[4]    ; Input ; Info     ; Stuck at VCC                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|univ_bin_counter_control_2:counter_i1"                            ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; ena      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; syn_clr  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; load     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; up       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; d        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ctrl     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; max_tick ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; min_tick ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "print_in_matrix:print|univ_bin_counter_control_2:counter_time"                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; ena         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; syn_clr     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; load        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; up          ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; d           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ctrl[15..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ctrl[0]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; min_tick    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; counter     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ball_bouncing_final:bounce|datff:register2"                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; q[31..7] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ball_bouncing_final:bounce|univ_bin_counter_control_2:counter_t"                           ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; ena         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; syn_clr     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; load        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; up          ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; d           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ctrl[27..3] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ctrl[1..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ctrl[2]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; min_tick    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; counter     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Mon Nov 27 11:16:35 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proyecto2 -c proyecto2
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file datff.vhd
+    Info (12022): Found design unit 1: datff-behavioral
+    Info (12023): Found entity 1: datff
+Info (12021): Found 2 design units, including 1 entities, in source file edge_detect.vhd
+    Info (12022): Found design unit 1: edge_detect-rtl
+    Info (12023): Found entity 1: edge_detect
+Info (12021): Found 2 design units, including 1 entities, in source file bin_to_sseg.vhd
+    Info (12022): Found design unit 1: bin_to_sseg-behaviour
+    Info (12023): Found entity 1: bin_to_sseg
+Info (12021): Found 2 design units, including 1 entities, in source file async_rom_corazon.vhd
+    Info (12022): Found design unit 1: async_rom_corazon-behavioral
+    Info (12023): Found entity 1: async_rom_corazon
+Info (12021): Found 2 design units, including 1 entities, in source file matrix_controller_tb.vhd
+    Info (12022): Found design unit 1: matrix_controller_tb-testbench
+    Info (12023): Found entity 1: matrix_controller_tb
+Info (12021): Found 2 design units, including 1 entities, in source file async_rom_carita.vhd
+    Info (12022): Found design unit 1: async_rom_carita-behavioral
+    Info (12023): Found entity 1: async_rom_carita
+Info (12021): Found 2 design units, including 1 entities, in source file univ_bin_counter_control_2.vhd
+    Info (12022): Found design unit 1: univ_bin_counter_control_2-rt1
+    Info (12023): Found entity 1: univ_bin_counter_control_2
+Info (12021): Found 2 design units, including 1 entities, in source file matrix_controller.vhd
+    Info (12022): Found design unit 1: matrix_controller-behaviour
+    Info (12023): Found entity 1: matrix_controller
+Info (12021): Found 2 design units, including 1 entities, in source file chasing_led.vhd
+    Info (12022): Found design unit 1: chasing_led-behavioral
+    Info (12023): Found entity 1: chasing_led
+Info (12021): Found 2 design units, including 1 entities, in source file ball_bouncing_tb.vhd
+    Info (12022): Found design unit 1: ball_bouncing_tb-testbench
+    Info (12023): Found entity 1: ball_bouncing_tb
+Info (12021): Found 2 design units, including 1 entities, in source file player1.vhd
+    Info (12022): Found design unit 1: player1-behavioral
+    Info (12023): Found entity 1: player1
+Info (12021): Found 2 design units, including 1 entities, in source file player2.vhd
+    Info (12022): Found design unit 1: player2-behavioral
+    Info (12023): Found entity 1: player2
+Info (12021): Found 2 design units, including 1 entities, in source file ball_bouncing_final.vhd
+    Info (12022): Found design unit 1: ball_bouncing_final-behavioral
+    Info (12023): Found entity 1: ball_bouncing_final
+Info (12021): Found 2 design units, including 1 entities, in source file mux4_1_when_else_integer.vhd
+    Info (12022): Found design unit 1: mux4_1_when_else_integer-functional
+    Info (12023): Found entity 1: mux4_1_when_else_integer
+Info (12021): Found 2 design units, including 1 entities, in source file datff2.vhd
+    Info (12022): Found design unit 1: datff2-behavioral
+    Info (12023): Found entity 1: datff2
+Info (12021): Found 2 design units, including 1 entities, in source file comparador.vhd
+    Info (12022): Found design unit 1: comparador-gateLevel
+    Info (12023): Found entity 1: comparador
+Info (12021): Found 2 design units, including 1 entities, in source file print_in_matrix.vhd
+    Info (12022): Found design unit 1: print_in_matrix-behavioral
+    Info (12023): Found entity 1: print_in_matrix
+Info (12021): Found 2 design units, including 1 entities, in source file decoder3_8.vhd
+    Info (12022): Found design unit 1: decoder3_8-functional
+    Info (12023): Found entity 1: decoder3_8
+Info (12021): Found 2 design units, including 1 entities, in source file decoder4_16.vhd
+    Info (12022): Found design unit 1: decoder4_16-functional
+    Info (12023): Found entity 1: decoder4_16
+Info (12021): Found 2 design units, including 1 entities, in source file comparador_less.vhd
+    Info (12022): Found design unit 1: comparador_less-gateLevel
+    Info (12023): Found entity 1: comparador_less
+Info (12021): Found 2 design units, including 1 entities, in source file print_in_matrix_tb.vhd
+    Info (12022): Found design unit 1: print_in_matrix_tb-testbench
+    Info (12023): Found entity 1: print_in_matrix_tb
+Info (12127): Elaborating entity "matrix_controller" for the top level hierarchy
+Info (12128): Elaborating entity "ball_bouncing_final" for hierarchy "ball_bouncing_final:bounce"
+Warning (10036): Verilog HDL or VHDL warning at ball_bouncing_final.vhd(22): object "countert" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(162): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(164): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(166): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(194): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(196): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(198): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(226): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(228): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(230): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(258): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(260): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ball_bouncing_final.vhd(262): signal "next_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at ball_bouncing_final.vhd(136): inferring latch(es) for signal or variable "sel", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball_bouncing_final.vhd(136): inferring latch(es) for signal or variable "next_s", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball_bouncing_final.vhd(136): inferring latch(es) for signal or variable "posi", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "posi[0]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[1]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[2]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[3]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[4]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[5]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[6]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[7]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[8]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[9]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[10]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[11]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[12]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[13]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[14]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[15]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[16]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[17]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[18]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[19]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[20]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[21]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[22]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[23]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[24]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[25]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[26]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[27]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[28]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[29]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[30]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[31]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[32]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[33]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[34]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[35]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[36]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[37]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[38]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[39]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[40]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[41]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[42]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[43]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[44]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[45]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[46]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[47]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[48]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[49]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[50]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[51]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[52]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[53]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[54]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[55]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[56]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[57]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[58]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[59]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[60]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[61]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[62]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[63]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[64]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[65]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[66]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[67]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[68]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[69]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[70]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[71]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[72]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[73]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[74]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[75]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[76]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[77]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[78]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[79]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[80]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[81]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[82]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[83]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[84]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[85]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[86]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[87]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[88]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[89]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[90]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[91]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[92]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[93]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[94]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[95]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[96]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[97]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[98]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[99]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[100]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[101]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[102]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[103]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[104]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[105]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[106]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[107]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[108]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[109]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[110]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[111]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[112]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[113]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[114]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[115]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[116]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[117]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[118]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[119]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[120]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[121]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[122]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[123]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[124]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[125]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[126]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "posi[127]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "next_s[0]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "next_s[1]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "next_s[2]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "next_s[3]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "sel[0]" at ball_bouncing_final.vhd(136)
+Info (10041): Inferred latch for "sel[1]" at ball_bouncing_final.vhd(136)
+Info (12128): Elaborating entity "univ_bin_counter_control_2" for hierarchy "ball_bouncing_final:bounce|univ_bin_counter_control_2:counter_t"
+Info (12128): Elaborating entity "mux4_1_when_else_integer" for hierarchy "ball_bouncing_final:bounce|mux4_1_when_else_integer:desition"
+Info (12128): Elaborating entity "datff" for hierarchy "ball_bouncing_final:bounce|datff:register1"
+Info (12128): Elaborating entity "print_in_matrix" for hierarchy "print_in_matrix:print"
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(38): used explicit default value for signal "y0" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(39): used explicit default value for signal "y1" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(40): used explicit default value for signal "y2" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(41): used explicit default value for signal "y3" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(42): used explicit default value for signal "y4" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(43): used explicit default value for signal "y5" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(44): used explicit default value for signal "y6" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at print_in_matrix.vhd(46): used explicit default value for signal "y8" because signal was never assigned a value
+Info (12128): Elaborating entity "univ_bin_counter_control_2" for hierarchy "print_in_matrix:print|univ_bin_counter_control_2:counter_time"
+Info (12128): Elaborating entity "univ_bin_counter_control_2" for hierarchy "print_in_matrix:print|univ_bin_counter_control_2:counter_i1"
+Info (12128): Elaborating entity "comparador" for hierarchy "print_in_matrix:print|comparador:comparador1"
+Info (12128): Elaborating entity "comparador_less" for hierarchy "print_in_matrix:print|comparador_less:comparador_retro"
+Info (12128): Elaborating entity "univ_bin_counter_control_2" for hierarchy "print_in_matrix:print|univ_bin_counter_control_2:counter_fila"
+Info (12128): Elaborating entity "decoder3_8" for hierarchy "print_in_matrix:print|decoder3_8:filas_decoder"
+Info (12128): Elaborating entity "decoder4_16" for hierarchy "print_in_matrix:print|decoder4_16:columnas_decoder"
+Warning (13012): Latch ball_bouncing_final:bounce|posi[37] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[41] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[33] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[45] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[57] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[53] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[49] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[61] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[38] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[54] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[42] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[58] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[34] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[50] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[46] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[62] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[40] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[56] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[36] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[52] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[32] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[48] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[44] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[60] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[43] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[39] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[35] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[47] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[55] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[59] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[51] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[63] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[101] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[105] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[97] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[109] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[89] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[85] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[81] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[93] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[69] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[73] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[65] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[77] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[121] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[117] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[113] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[125] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[102] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[86] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[70] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[118] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[90] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[106] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[74] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[122] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[82] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[98] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[66] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[114] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[110] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[94] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[78] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[126] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[104] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[88] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[72] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[120] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[84] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[100] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[68] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[116] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[96] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[80] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[64] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[112] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[92] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[108] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[76] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[124] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[87] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[91] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[83] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[95] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[107] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[103] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[99] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[111] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[75] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[71] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[67] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[79] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[119] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[123] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[115] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Warning (13012): Latch ball_bouncing_final:bounce|posi[127] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ball_bouncing_final:bounce|datff:register1|q[6]
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register ball_bouncing_final:bounce|datff:register1|q[0] will power up to Low
+    Critical Warning (18010): Register ball_bouncing_final:bounce|datff:register2|q[0] will power up to Low
+    Critical Warning (18010): Register ball_bouncing_final:bounce|datff:register1|q[31] will power up to Low
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "sel"
+Info (21057): Implemented 1003 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 968 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 286 warnings
+    Info: Peak virtual memory: 4699 megabytes
+    Info: Processing ended: Mon Nov 27 11:16:38 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+
